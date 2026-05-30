@@ -2,13 +2,20 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Bấm Giờ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng Hồ Bấm Giờ Trực Tuyến - Đo Thời Gian Chính Xác</title>
+    <meta name="description" content="Đồng hồ bấm giờ trực tuyến chính xác từng giây. Công cụ hỗ trợ đo lường thời gian cho công việc, học tập, thể thao và các hoạt động hàng ngày.">
     <style>
-        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
-        #timer { font-size: 60px; margin: 40px; color: #38bdf8; }
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; line-height: 1.6; }
+        #timer { font-size: 60px; margin: 40px; color: #38bdf8; font-weight: bold; }
         button { padding: 15px 30px; margin: 5px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
         .start { background: #22c55e; color: white; }
         .stop { background: #ef4444; color: white; }
+        .back { color:#888; display:block; margin-top:20px; text-decoration: none; }
+        
+        /* CSS cho phần FAQ chuẩn SEO */
+        .seo-content { text-align: left; max-width: 600px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; color: #cbd5e1; }
+        .seo-content h3 { color: #38bdf8; }
     </style>
 </head>
 <body>
@@ -16,7 +23,14 @@
     <div id="timer">00:00</div>
     <button class="start" onclick="start()">BẮT ĐẦU</button>
     <button class="stop" onclick="stop()">DỪNG</button>
-    <br><a href="index.html" style="color:#888; display:block; margin-top:20px;">Quay lại</a>
+    <a href="index.html" class="back">← Quay lại trang chủ</a>
+    
+    <div class="seo-content">
+        <h3>Câu hỏi về đồng hồ bấm giờ</h3>
+        <p><strong>Độ chính xác của đồng hồ này thế nào?</strong><br>Đồng hồ sử dụng thời gian thực của trình duyệt, đảm bảo độ chính xác cao cho các hoạt động thông thường.</p>
+        <p><strong>Tôi có thể dùng để làm gì?</strong><br>Thích hợp cho việc bấm giờ làm bài tập, luyện tập thể thao, nấu ăn hoặc quản lý thời gian làm việc.</p>
+        <p><strong>Công cụ có mất phí không?</strong><br>Đây là công cụ miễn phí 100%, bạn có thể sử dụng bất cứ lúc nào trên mọi thiết bị.</p>
+    </div>
     
     <script>
         let s = 0, t;
