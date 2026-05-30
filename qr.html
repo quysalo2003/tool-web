@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tạo Mã QR</title>
+    <title>Tạo Mã QR Online Miễn Phí - Nhanh Chóng & Bảo Mật</title>
+    <meta name="description" content="Công cụ tạo mã QR Code online miễn phí, nhanh chóng. Chuyển đổi mọi đường dẫn, văn bản thành mã QR chỉ trong 1 giây. Không cần cài đặt, sử dụng ngay!">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; line-height: 1.6; }
         input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; box-sizing: border-box; max-width: 400px; }
         button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
         
-        /* Mặc định ẩn khung trắng */
         #qrcode { 
             margin: 30px auto; 
             background: white; 
@@ -20,6 +20,10 @@
         }
         
         .back { color: #38bdf8; text-decoration: none; display: block; margin-top: 20px; }
+        
+        /* CSS cho phần FAQ chuẩn SEO */
+        .seo-content { text-align: left; max-width: 600px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; color: #cbd5e1; }
+        .seo-content h3 { color: #38bdf8; }
     </style>
 </head>
 <body>
@@ -29,6 +33,13 @@
     <div id="qrcode"></div>
     <a href="index.html" class="back">← Quay lại trang chủ</a>
 
+    <div class="seo-content">
+        <h3>Câu hỏi thường gặp về QR Code</h3>
+        <p><strong>Mã QR tạo ra có hết hạn không?</strong><br>Không, các mã QR được tạo tại website của chúng tôi có giá trị vĩnh viễn.</p>
+        <p><strong>Tôi có phải trả phí để tạo mã không?</strong><br>Dịch vụ này hoàn toàn miễn phí, không giới hạn số lượng QR tạo ra mỗi ngày.</p>
+        <p><strong>QR Code này có quét được trên điện thoại không?</strong><br>Có, mã QR tương thích với tất cả các ứng dụng quét mã trên iOS và Android.</p>
+    </div>
+
     <script>
         function generate() {
             var el = document.getElementById("qrcode");
@@ -36,7 +47,7 @@
             
             if(inputVal.trim() !== "") {
                 el.innerHTML = "";
-                el.style.display = "inline-block"; // Hiện khung lên khi có QR
+                el.style.display = "inline-block"; 
                 new QRCode(el, {
                     text: inputVal,
                     width: 200,
@@ -46,7 +57,7 @@
                     correctLevel : QRCode.CorrectLevel.H
                 });
             } else {
-                el.style.display = "none"; // Ẩn nếu không nhập gì
+                el.style.display = "none";
             }
         }
     </script>
