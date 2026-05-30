@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xử Lý Văn Bản</title>
+    <title>Công Cụ Xử Lý Văn Bản Online - Đếm Từ, Viết Hoa, Đảo Ngược</title>
+    <meta name="description" content="Công cụ xử lý văn bản trực tuyến tiện ích: đếm ký tự, đếm từ, chuyển đổi chữ hoa/thường và đảo ngược văn bản nhanh chóng. Hỗ trợ tốt cho người làm nội dung.">
     <style>
-        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; line-height: 1.6; }
         textarea { width: 90%; max-width: 600px; height: 150px; padding: 15px; border-radius: 10px; border: none; margin-bottom: 10px; box-sizing: border-box; }
         .stats { margin-bottom: 20px; color: #38bdf8; font-weight: bold; }
-        .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 20px; }
         button { padding: 10px 20px; background: #38bdf8; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
         .back { color: #888; text-decoration: none; display: block; margin-top: 30px; }
+        
+        /* CSS cho phần FAQ chuẩn SEO */
+        .seo-content { text-align: left; max-width: 600px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; color: #cbd5e1; }
+        .seo-content h3 { color: #38bdf8; }
     </style>
 </head>
 <body>
@@ -27,6 +32,13 @@
     </div>
     
     <a href="index.html" class="back">← Quay lại trang chủ</a>
+
+    <div class="seo-content">
+        <h3>Các tính năng hữu ích cho người làm nội dung</h3>
+        <p><strong>Tại sao cần đếm từ và ký tự?</strong><br>Công cụ giúp bạn tuân thủ giới hạn ký tự của các nền tảng như Facebook, TikTok hay sàn thương mại điện tử.</p>
+        <p><strong>Tính năng đảo ngược văn bản dùng để làm gì?</strong><br>Thường được sử dụng để tạo hiệu ứng giải trí, thử thách hoặc mã hóa đơn giản trong các trò chơi.</p>
+        <p><strong>Có giới hạn độ dài văn bản không?</strong><br>Không, bạn có thể xử lý các đoạn văn bản dài một cách mượt mà và tức thì.</p>
+    </div>
 
     <script>
         function updateStats() {
