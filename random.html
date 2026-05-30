@@ -2,23 +2,47 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Số</title>
     <style>
         body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
-        #result { font-size: 50px; margin: 30px; color: #38bdf8; }
-        button { padding: 15px 40px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .input-group { margin: 20px 0; }
+        .input-group input { 
+            padding: 10px; width: 70px; border-radius: 8px; border: none; 
+            text-align: center; font-size: 16px; margin: 0 5px;
+        }
+        #result { font-size: 80px; font-weight: bold; margin: 20px; color: #38bdf8; }
+        button { 
+            padding: 15px 40px; background: #38bdf8; border: none; 
+            border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 18px;
+        }
         .back { color: #888; text-decoration: none; display: block; margin-top: 30px; }
     </style>
 </head>
 <body>
     <h1>BỐC THĂM NGẪU NHIÊN</h1>
+    
+    <div class="input-group">
+        <input type="number" id="min" value="1" placeholder="Min">
+        <input type="number" id="max" value="100" placeholder="Max">
+    </div>
+
     <div id="result">0</div>
     <button onclick="randomNum()">QUAY SỐ</button>
+    
     <a href="index.html" class="back">← Quay lại trang chủ</a>
 
     <script>
         function randomNum() {
-            let num = Math.floor(Math.random() * 100) + 1;
+            let min = parseInt(document.getElementById("min").value);
+            let max = parseInt(document.getElementById("max").value);
+            
+            if (isNaN(min) || isNaN(max) || min >= max) {
+                alert("Nhập số Từ nhỏ hơn số Đến đi ông ơi!");
+                return;
+            }
+
+            let num = Math.floor(Math.random() * (max - min + 1)) + min;
             document.getElementById("result").innerHTML = num;
         }
     </script>
