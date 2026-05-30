@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Mật Khẩu</title>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        #pass { font-size: 24px; padding: 20px; background: #1e293b; border: 1px solid #38bdf8; color: #38bdf8; margin: 20px; border-radius: 10px; }
+        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>TẠO MẬT KHẨU MẠNH</h1>
+    <div id="pass">Nhấn tạo để bắt đầu</div>
+    <button onclick="genPass()">TẠO MẬT KHẨU</button>
+    <a href="index.html" style="display:block; margin-top:20px; color:#888;">Quay lại</a>
+
+    <script>
+        function genPass() {
+            let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*";
+            let pass = "";
+            for (let i = 0; i < 12; i++) {
+                pass += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            document.getElementById("pass").innerHTML = pass;
+        }
+    </script>
+</body>
+</html>

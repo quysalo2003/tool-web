@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo Mã QR</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; }
+        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; }
+        #qrcode { margin: 30px auto; background: white; padding: 10px; width: 128px; }
+        .back { color: #38bdf8; text-decoration: none; display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>TẠO MÃ QR</h1>
+    <input type="text" id="text" placeholder="Nhập nội dung vào đây...">
+    <button onclick="generate()">TẠO MÃ</button>
+    <div id="qrcode"></div>
+    <a href="index.html" class="back">← Quay lại trang chủ</a>
+
+    <script>
+        function generate() {
+            document.getElementById("qrcode").innerHTML = "";
+            new QRCode(document.getElementById("qrcode"), document.getElementById("text").value);
+        }
+    </script>
+</body>
+</html>

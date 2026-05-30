@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bấm Giờ</title>
+    <style>
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        #timer { font-size: 60px; margin: 40px; color: #38bdf8; }
+        button { padding: 15px 30px; margin: 5px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .start { background: #22c55e; color: white; }
+        .stop { background: #ef4444; color: white; }
+    </style>
+</head>
+<body>
+    <h1>BẤM GIỜ</h1>
+    <div id="timer">00:00</div>
+    <button class="start" onclick="start()">BẮT ĐẦU</button>
+    <button class="stop" onclick="stop()">DỪNG</button>
+    <br><a href="index.html" style="color:#888; display:block; margin-top:20px;">Quay lại</a>
+    
+    <script>
+        let s = 0, t;
+        function start() { clearInterval(t); t = setInterval(() => { s++; 
+            document.getElementById("timer").innerText = Math.floor(s/60).toString().padStart(2,'0') + ":" + (s%60).toString().padStart(2,'0');
+        }, 1000); }
+        function stop() { clearInterval(t); s = 0; document.getElementById("timer").innerText = "00:00"; }
+    </script>
+</body>
+</html>
