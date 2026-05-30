@@ -7,14 +7,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
-        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; box-sizing: border-box; }
+        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; box-sizing: border-box; max-width: 400px; }
         button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
         
+        /* Mặc định ẩn khung trắng */
         #qrcode { 
             margin: 30px auto; 
             background: white; 
             padding: 20px; 
-            display: inline-block; 
+            display: none; 
             border-radius: 10px;
         }
         
@@ -31,15 +32,22 @@
     <script>
         function generate() {
             var el = document.getElementById("qrcode");
-            el.innerHTML = "";
-            new QRCode(el, {
-                text: document.getElementById("text").value,
-                width: 200,
-                height: 200,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
+            var inputVal = document.getElementById("text").value;
+            
+            if(inputVal.trim() !== "") {
+                el.innerHTML = "";
+                el.style.display = "inline-block"; // Hiện khung lên khi có QR
+                new QRCode(el, {
+                    text: inputVal,
+                    width: 200,
+                    height: 200,
+                    colorDark : "#000000",
+                    colorLight : "#ffffff",
+                    correctLevel : QRCode.CorrectLevel.H
+                });
+            } else {
+                el.style.display = "none"; // Ẩn nếu không nhập gì
+            }
         }
     </script>
 </body>
