@@ -2,13 +2,22 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tạo Mã QR</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
-        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; }
-        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; }
-        #qrcode { margin: 30px auto; background: white; padding: 10px; width: 128px; }
+        input { padding: 15px; width: 80%; border-radius: 10px; border: none; margin-bottom: 20px; box-sizing: border-box; }
+        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        
+        #qrcode { 
+            margin: 30px auto; 
+            background: white; 
+            padding: 20px; 
+            display: inline-block; 
+            border-radius: 10px;
+        }
+        
         .back { color: #38bdf8; text-decoration: none; display: block; margin-top: 20px; }
     </style>
 </head>
@@ -21,8 +30,16 @@
 
     <script>
         function generate() {
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"), document.getElementById("text").value);
+            var el = document.getElementById("qrcode");
+            el.innerHTML = "";
+            new QRCode(el, {
+                text: document.getElementById("text").value,
+                width: 200,
+                height: 200,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
         }
     </script>
 </body>
