@@ -2,18 +2,32 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Tạo Mật Khẩu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Mật Khẩu Mạnh Online - Bảo Mật Tài Khoản</title>
+    <meta name="description" content="Trình tạo mật khẩu ngẫu nhiên, bảo mật cao. Giúp bạn tạo chuỗi ký tự mạnh, bao gồm chữ hoa, thường, số và ký tự đặc biệt để chống hack tài khoản.">
     <style>
-        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
-        #pass { font-size: 24px; padding: 20px; background: #1e293b; border: 1px solid #38bdf8; color: #38bdf8; margin: 20px; border-radius: 10px; }
-        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; }
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; line-height: 1.6; }
+        #pass { font-size: 24px; padding: 20px; background: #1e293b; border: 1px solid #38bdf8; color: #38bdf8; margin: 20px auto; border-radius: 10px; max-width: 400px; word-break: break-all; }
+        button { padding: 15px 30px; background: #38bdf8; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .back { color: #888; text-decoration: none; display: block; margin-top: 20px; }
+        
+        /* CSS cho phần FAQ chuẩn SEO */
+        .seo-content { text-align: left; max-width: 600px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; color: #cbd5e1; }
+        .seo-content h3 { color: #38bdf8; }
     </style>
 </head>
 <body>
     <h1>TẠO MẬT KHẨU MẠNH</h1>
     <div id="pass">Nhấn tạo để bắt đầu</div>
     <button onclick="genPass()">TẠO MẬT KHẨU</button>
-    <a href="index.html" style="display:block; margin-top:20px; color:#888;">Quay lại</a>
+    <a href="index.html" class="back">← Quay lại trang chủ</a>
+
+    <div class="seo-content">
+        <h3>Tại sao nên dùng mật khẩu ngẫu nhiên?</h3>
+        <p><strong>Mật khẩu mạnh là gì?</strong><br>Là mật khẩu kết hợp chữ hoa, chữ thường, số và ký tự đặc biệt, giúp ngăn chặn các cuộc tấn công dò mật khẩu.</p>
+        <p><strong>Dịch vụ này có lưu trữ mật khẩu không?</strong><br>Không, mật khẩu được tạo ngẫu nhiên trên trình duyệt của bạn và không bao giờ được gửi đến máy chủ của chúng tôi.</p>
+        <p><strong>Mật khẩu 12 ký tự có đủ an toàn không?</strong><br>Với 12 ký tự gồm nhiều loại ký tự khác nhau, mật khẩu của bạn rất khó bị bẻ khóa bằng các phương pháp thông thường.</p>
+    </div>
 
     <script>
         function genPass() {
