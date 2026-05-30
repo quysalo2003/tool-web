@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Số</title>
+    <title>Quay Số Ngẫu Nhiên Online - Bốc Thăm May Mắn</title>
+    <meta name="description" content="Công cụ quay số ngẫu nhiên online chính xác. Hỗ trợ bốc thăm may mắn, chọn số ngẫu nhiên tùy chỉnh từ Min đến Max. Nhanh chóng và minh bạch.">
     <style>
-        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; }
+        body { font-family: sans-serif; background: #0f172a; color: white; text-align: center; padding: 20px; line-height: 1.6; }
         .input-group { margin: 20px 0; }
         .input-group input { 
             padding: 10px; width: 70px; border-radius: 8px; border: none; 
@@ -17,20 +18,31 @@
             border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 18px;
         }
         .back { color: #888; text-decoration: none; display: block; margin-top: 30px; }
+        
+        /* CSS cho phần FAQ chuẩn SEO */
+        .seo-content { text-align: left; max-width: 600px; margin: 40px auto; padding: 20px; background: #111; border-radius: 15px; color: #cbd5e1; }
+        .seo-content h3 { color: #38bdf8; }
     </style>
 </head>
 <body>
     <h1>BỐC THĂM NGẪU NHIÊN</h1>
     
     <div class="input-group">
-        <input type="number" id="min" value="1" placeholder="Min">
-        <input type="number" id="max" value="100" placeholder="Max">
+        Từ: <input type="number" id="min" value="1" placeholder="Min">
+        Đến: <input type="number" id="max" value="100" placeholder="Max">
     </div>
 
     <div id="result">0</div>
     <button onclick="randomNum()">QUAY SỐ</button>
     
     <a href="index.html" class="back">← Quay lại trang chủ</a>
+
+    <div class="seo-content">
+        <h3>Ứng dụng của quay số ngẫu nhiên</h3>
+        <p><strong>Dùng để làm gì?</strong><br>Công cụ giúp bạn chọn số trúng thưởng, bốc thăm may mắn hoặc đưa ra các lựa chọn ngẫu nhiên một cách công bằng.</p>
+        <p><strong>Kết quả có thực sự ngẫu nhiên không?</strong><br>Có, chúng tôi sử dụng hàm tính toán ngẫu nhiên của trình duyệt để đảm bảo tính minh bạch.</p>
+        <p><strong>Có giới hạn phạm vi số không?</strong><br>Không, bạn hoàn toàn có thể tự do nhập khoảng số từ nhỏ đến lớn tùy theo nhu cầu.</p>
+    </div>
 
     <script>
         function randomNum() {
