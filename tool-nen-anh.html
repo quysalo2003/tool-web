@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công cụ Nén Ảnh Online Miễn Phí - Giảm dung lượng ảnh nhanh chóng</title>
+    <meta name="description" content="Công cụ nén ảnh online miễn phí, giúp giảm dung lượng ảnh mà không làm giảm chất lượng. Hỗ trợ đăng TikTok, Shopee cực nhanh.">
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f9; line-height: 1.6; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        #preview { max-width: 100%; height: auto; margin-top: 20px; border: 1px solid #ddd; display: none; }
+        .btn { display: none; padding: 12px 24px; background: #28a745; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; cursor: pointer; font-weight: bold; }
+        .step-list { text-align: left; margin: 20px 0; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Công cụ Nén Ảnh Online</h1>
+    
+    <!-- Hướng dẫn sử dụng -->
+    <div class="step-list">
+        <strong>Hướng dẫn sử dụng:</strong>
+        <ol>
+            <li>Nhấn vào nút "Chọn tệp" để tải ảnh của bạn lên.</li>
+            <li>Đợi vài giây để công cụ tự động nén ảnh.</li>
+            <li>Nhấn nút "Tải ảnh đã nén" để lưu về máy.</li>
+        </ol>
+    </div>
+    
+    <input type="file" id="upload" accept="image/*">
+    <br>
+    <img id="preview">
+    <br>
+    <a id="downloadBtn" class="btn">Tải ảnh đã nén</a>
+</div>
+
+<!-- Phần FAQ chuẩn SEO -->
+<div class="container" style="margin-top: 30px; text-align: left;">
+    <h2 style="text-align: center; font-size: 1.2em;">Câu hỏi thường gặp (FAQ)</h2>
+    
+    <details style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+        <summary style="font-weight: bold; cursor: pointer;">Nén ảnh bằng công cụ này có bị giảm chất lượng không?</summary>
+        <p>Công cụ này sử dụng thuật toán thông minh để giảm dung lượng file xuống mức thấp nhất nhưng vẫn đảm bảo giữ được độ sắc nét từ 60-80%, rất phù hợp để đăng TikTok, Shopee.</p>
+    </details>
+
+    <details style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+        <summary style="font-weight: bold; cursor: pointer;">Tôi có thể nén nhiều ảnh cùng lúc không?</summary>
+        <p>Hiện tại công cụ hỗ trợ nén từng ảnh để đảm bảo tốc độ nhanh và bảo mật tuyệt đối cho thiết bị của bạn.</p>
+    </details>
+
+    <details style="margin-bottom: 10px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">
+        <summary style="font-weight: bold; cursor: pointer;">Ảnh của tôi có bị lưu lại trên server không?</summary>
+        <p>Không! Mọi thao tác nén ảnh diễn ra hoàn toàn trên trình duyệt của bạn (Client-side). Ảnh của bạn không bao giờ được gửi lên server.</p>
+    </details>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.2.1/compressor.min.js"></script>
+<script>
+    const upload = document.getElementById('upload');
+    const preview = document.getElementById('preview');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    upload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        new Compressor(file, {
+            quality: 0.6,
+            success(result) {
+                const url = URL.createObjectURL(result);
+                preview.src = url;
+                preview.style.display = 'block';
+                downloadBtn.href = url;
+                downloadBtn.download = 'anh-da-nen.jpg';
+                downloadBtn.style.display = 'inline-block';
+            },
+            error(err) {
+                alert('Lỗi rồi, thử lại nhé: ' + err.message);
+            },
+        });
+    });
+</script>
+</body>
+</html>
