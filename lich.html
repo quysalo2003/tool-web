@@ -2,50 +2,51 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xem Lịch Âm Dương - Đổi Ngày Âm Sang Dương Online</title>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; margin: 0; }
         .box { width: 100%; max-width: 400px; background: #111; padding: 30px; border-radius: 20px; border: 1px solid #333; text-align: center; }
-        .am-lich { color: #eab308; font-size: 2rem; font-weight: bold; margin: 15px 0; }
-        .seo-content { text-align: left; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; color: #94a3b8; font-size: 0.85rem; }
+        h1 { font-size: 1.6rem; color: #38bdf8; }
+        .am-lich { color: #eab308; font-size: 3rem; font-weight: bold; margin: 20px 0; }
+        #duong-lich { font-size: 1.2rem; color: #fff; }
+        
+        /* SEO Content Styles */
+        .seo-content { text-align: left; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; color: #94a3b8; font-size: 0.9rem; }
+        .faq-item { margin-bottom: 15px; }
+        .faq-item strong { color: #fff; display: block; }
     </style>
 </head>
 <body>
 <div class="box">
     <h1>Lịch Âm Dương</h1>
-    <div id="calendar-info">
-        <p id="duong-lich"></p>
-        <div class="am-lich" id="am-lich">Đang tải...</div>
-        <p>Âm Lịch</p>
-    </div>
+    <p id="duong-lich">Đang tải...</p>
+    <div class="am-lich" id="am-lich">...</div>
+    <p>Âm Lịch</p>
 
     <div class="seo-content">
-        <h3>Thông tin về lịch âm dương</h3>
-        <p>Công cụ hỗ trợ tra cứu ngày âm lịch và dương lịch chính xác, phục vụ nhu cầu xem ngày tốt, ngày lễ tết trong năm.</p>
-        <h4>Câu hỏi thường gặp (FAQ)</h4>
-        <p><strong>Q: Lịch âm có chính xác không?</strong><br>A: Dữ liệu được tính toán dựa trên các thuật toán thiên văn tiêu chuẩn.</p>
-        <p><strong>Q: Có cần đăng ký không?</strong><br>A: Không, đây là công cụ miễn phí hoàn toàn.</p>
+        <h2>Thông tin lịch âm dương</h2>
+        <p>Công cụ hỗ trợ tra cứu ngày âm lịch và dương lịch chính xác, giúp bạn dễ dàng xem ngày tốt, ngày lễ tết trong năm.</p>
+        
+        <h3>Câu hỏi thường gặp (FAQ)</h3>
+        <div class="faq-item">
+            <strong>Q: Lịch âm tại đây có chính xác không?</strong>
+            A: Dữ liệu được tính toán dựa trên các thuật toán lịch thiên văn chuẩn, đảm bảo độ chính xác cao.
+        </div>
+        <div class="faq-item">
+            <strong>Q: Có mất phí khi xem lịch không?</strong>
+            A: Đây là công cụ tiện ích hoàn toàn miễn phí, không yêu cầu đăng ký tài khoản.
+        </div>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/gh/thangngoc89/lunar-calendar-vn/lunar-calendar.min.js"></script>
 <script>
-    // Hàm chuyển đổi Dương sang Âm cơ bản
-    function getLunarDate(date) {
-        // Đây là bộ chuyển đổi mini, không cần file thư viện bên ngoài
-        const solarDate = new Date(date);
-        const year = solarDate.getFullYear();
-        const month = solarDate.getMonth() + 1;
-        const day = solarDate.getDate();
-        
-        // Cập nhật ngày dương
-        document.getElementById('duong-lich').innerText = "Ngày " + day + "/" + month + "/" + year;
-        
-        // Demo hiển thị - Nếu mày muốn chuẩn 100% từng ngày, 
-        // code này sẽ tự lấy dữ liệu từ hệ thống. 
-        // Hiện tại tao đang để hiển thị định dạng ngày âm tại đây:
-        document.getElementById('am-lich').innerText = day + "/" + month + "/" + year + " (Âm)";
-    }
-    getLunarDate(new Date());
+    const now = new Date();
+    document.getElementById('duong-lich').innerText = "Ngày " + now.getDate() + "/" + (now.getMonth()+1) + "/" + now.getFullYear();
+    const lunar = LunarCalendar.calendar(now.getFullYear(), now.getMonth()+1);
+    const day = lunar[now.getDate()];
+    document.getElementById('am-lich').innerText = day.lunarDay + "/" + day.lunarMonth;
 </script>
 </body>
 </html>
