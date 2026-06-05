@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xem Giờ Quốc Tế - Cập Nhật Giờ Thế Giới Online</title>
+    <style>
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; justify-content: center; padding: 20px; }
+        .box { width: 100%; max-width: 400px; background: #111; padding: 30px; border-radius: 20px; border: 1px solid #333; text-align: center; }
+        select { width: 100%; padding: 15px; margin: 20px 0; border-radius: 10px; background: #222; color: #fff; border: 1px solid #444; }
+        .time-display { font-size: 2rem; font-weight: bold; color: #38bdf8; margin: 20px 0; }
+        .seo-content { text-align: left; margin-top: 30px; border-top: 1px solid #333; padding-top: 20px; color: #94a3b8; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>Giờ Quốc Tế</h1>
+    <select id="timezone" onchange="updateTime()">
+        <option value="Asia/Ho_Chi_Minh">Việt Nam (ICT)</option>
+        <option value="Asia/Tokyo">Nhật Bản (JST)</option>
+        <option value="Asia/Seoul">Hàn Quốc (KST)</option>
+        <option value="America/New_York">Mỹ (EST)</option>
+        <option value="Europe/London">Anh (GMT)</option>
+        <option value="Australia/Sydney">Úc (AEDT)</option>
+    </select>
+    <div class="time-display" id="clock">00:00:00</div>
+    <p id="date">-</p>
+
+    <!-- Phần SEO & FAQ cho Google -->
+    <div class="seo-content">
+        <h3>Xem giờ thế giới trực tuyến</h3>
+        <p>Công cụ xem giờ quốc tế hỗ trợ cập nhật thời gian chính xác theo múi giờ của các quốc gia trên thế giới như Nhật Bản, Hàn Quốc, Mỹ, Anh và Úc.</p>
+        
+        <h4>Câu hỏi thường gặp (FAQ)</h4>
+        <p><strong>Q: Giờ có tự động cập nhật không?</strong><br>
+        A: Có, hệ thống tự động đồng bộ theo thời gian thực của thiết bị và múi giờ quốc tế.</p>
+        
+        <p><strong>Q: Công cụ có hỗ trợ giờ mùa hè không?</strong><br>
+        A: Có, các múi giờ được cập nhật tự động theo tiêu chuẩn quốc tế.</p>
+    </div>
+</div>
+
+<script>
+function updateTime() {
+    const tz = document.getElementById('timezone').value;
+    const now = new Date();
+    const options = { timeZone: tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const dateOptions = { timeZone: tz, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    
+    document.getElementById('clock').innerText = new Intl.DateTimeFormat('vi-VN', options).format(now);
+    document.getElementById('date').innerText = new Intl.DateTimeFormat('vi-VN', dateOptions).format(now);
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+</body>
+</html>
